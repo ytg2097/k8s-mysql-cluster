@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+data:
+  master.cnf: |
+    # 这个配置会被挂在到master节点.
+    [mysqld]
+    log-bin
+  slave.cnf: |
+    # 这个配置会被挂在到slave节点.
+    [mysqld]
+    super-read-only
+
+
